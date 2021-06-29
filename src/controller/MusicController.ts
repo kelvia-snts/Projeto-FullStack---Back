@@ -33,6 +33,25 @@ export class MusicController {
     }
   }
 
+  async getAllMusics(req: Request, res: Response) {
+    try {
+      const token = req.headers.authorization as string;
+      const musicLogic = new MusicLogic(
+        new MusicDatabase(),
+        new IdGenerator(),
+        new Authenticator()
+      );
+      const musics = await musicLogic.getAllMusics(token);
+      res.status(200).send({musics});
+    } catch (error) {
+      res.status(error.customErrorCode || 400).send({
+        message: error.message,
+      });
+    } finally {
+      await BaseDatabase.destroyConnection();
+    }
+  }
+
   async getMusicDetail(req: Request, res: Response) {
     try {
       const input = req.query.id as string;

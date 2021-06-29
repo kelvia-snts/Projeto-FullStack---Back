@@ -33,10 +33,19 @@ export class MusicLogic {
     );
   }
 
-  async getMusicById(input: string): Promise<Music> {
-    if (!input) {
-      throw new InvalidInputError("invalid input to show music");
+  async getAllMusics(token: string): Promise<void> {
+    const tokenData = this.authenticator.getData(token);
+
+    if (!tokenData) {
+      throw new UnauthorizedError("Unauthorized");
     }
-    return this.musicDatabase.getMusicByIdOrFail(input);
+    return this.musicDatabase.getMusics(token)
+  }
+
+  async getMusicById(id: string): Promise<Music> {
+    if (!id) {
+      throw new InvalidInputError("invalid id to show music");
+    }
+    return this.musicDatabase.getMusicByIdOrFail(id);
   }
 }
