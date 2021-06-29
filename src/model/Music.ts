@@ -5,7 +5,7 @@ export class Music {
     private author: string,
     private date: Date,
     private file: string,
-    private genre: string[],
+    private genreId: string[],
     private album: string
   ) {}
 
@@ -24,8 +24,8 @@ export class Music {
   public getFile(): string {
     return this.file;
   }
-  public getGenre(): string[] {
-    return this.genre;
+  public getGenreId(): string[] {
+    return this.genreId;
   }
   public getAlbum(): string {
     return this.album;
@@ -46,9 +46,7 @@ export class Music {
 
 export interface MusicCreation {
   title: string
-  author: string;
-  date: Date;
   file: string;
-  genre: string[];
+  genreId: string[];
   album: string;
 }
