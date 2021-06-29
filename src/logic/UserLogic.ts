@@ -32,7 +32,7 @@ export class UserLogic {
         throw new InvalidInputError("Password should have more than 6 digits");
       }
 
-      const UserId = this.idGenerator.generate();      
+      const UserId = this.idGenerator.generate();
       const hashPassword = await this.hashManager.hash(user.password);
 
       await this.userDatabase.registerUser(
@@ -66,26 +66,27 @@ export class UserLogic {
   }
 
   async loginByEmailOrNickname(user: UserLoginDTO) {
-    // falta implementar possibilidade de login usando só o email ou nickname
-    if ((!user.email && !user.nickname) || !user.password) {
+    if (!user.login || !user.password) {
       throw new InvalidInputError("Invalid data to login");
     }
-    if (user.email.indexOf("@") === -1) {
-      throw new InvalidInputError("Invalid email format")
-  }
-    const existingNickname = await this.userDatabase.getUserByNickname(user.nickname);
-    const existingEmail =  await this.userDatabase.getUserByEmail(user.email);
-    const hashCompare = await this.hashManager.compare(user.password, existingEmail.getPassword() );
-    if ((!existingEmail && !existingNickname) || !hashCompare) {
+    const isEmail = user.login.includes("@");
+
+    const existingUser = isEmail
+      ? await this.userDatabase.getUserByEmail(user.login)
+      : await this.userDatabase.getUserByNickname(user.login);
+
+    const hashCompare = await this.hashManager.compare(
+      user.password,
+      existingUser.getPassword()
+    );
+    if (!existingUser || !hashCompare) {
       throw new CustomError(401, "Invalid credentials");
     }
 
     const accessToken = this.authenticator.generateToken({
-      id: existingEmail?.getId() || existingNickname?.getId(),
-      role: existingEmail?.getRole() || existingNickname?.getRole(),
+      id: existingUser.getId(),
+      role: existingUser.getRole(),
     });
     return accessToken;
   }
-
-  // próximo
 }

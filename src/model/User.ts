@@ -66,8 +66,7 @@ export interface UserRegisterDTO {
 }
 
 export interface UserLoginDTO {
-  email?: any,
-  nickname?: any,
+  login: string,
   password: string
 }
 
