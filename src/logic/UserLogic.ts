@@ -32,7 +32,7 @@ export class UserLogic {
         throw new InvalidInputError("Password should have more than 6 digits");
       }
 
-      const UserId = this.idGenerator.generate();
+      const UserId = this.idGenerator.generate();      
       const hashPassword = await this.hashManager.hash(user.password);
 
       await this.userDatabase.registerUser(
@@ -66,6 +66,7 @@ export class UserLogic {
   }
 
   async loginByEmailOrNickname(user: UserLoginDTO) {
+    // falta implementar possibilidade de login usando só o email ou nickname
     if ((!user.email && !user.nickname) || !user.password) {
       throw new InvalidInputError("Invalid data to login");
     }
