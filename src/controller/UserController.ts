@@ -37,8 +37,7 @@ export class UserController {
   async login(req: Request, res: Response) {
     try {
       const loginData: UserLoginDTO = {
-        email: req.body.email,
-        nickname: req.body.nickname,
+        login: req.body.login,
         password: req.body.password
       }
 
@@ -55,6 +54,5 @@ export class UserController {
     } catch (error) {
       res.status(400).send({ error: error.message });
     }
-    await BaseDatabase.destroyConnection();
   }
 }
