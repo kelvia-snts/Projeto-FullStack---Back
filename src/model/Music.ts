@@ -2,10 +2,10 @@ export class Music {
   constructor(
     private id: string,
     private title: string,
-    private author: string,
+    private author_id: string,
     private date: Date,
     private file: string,
-    private genreId: string[],
+    private genre_id: string[],
     private album: string
   ) {}
 
@@ -15,8 +15,8 @@ export class Music {
   public getTitle(): string {
     return this.title;
   }
-  public getAuthor(): string {
-    return this.author;
+  public getAuthorId(): string {
+    return this.author_id;
   }
   public getDate(): Date {
     return this.date;
@@ -25,28 +25,28 @@ export class Music {
     return this.file;
   }
   public getGenreId(): string[] {
-    return this.genreId;
+    return this.genre_id;
   }
   public getAlbum(): string {
     return this.album;
   }
 
-  static toMusicModel(music: any): Music {
+ public static toMusicModel(music: any): Music | undefined{
     return new Music(
       music.id,
       music.title,
-      music.author,
+      music.author_id,
       music.date,
       music.file,
-      music.genre,
+      music.genre_id,
       music.album
     );
   }
 }
 
-export interface MusicCreation {
+export interface MusicCreationDTO {
   title: string
   file: string;
-  genreId: string[];
+  genre_id: string[];
   album: string;
 }

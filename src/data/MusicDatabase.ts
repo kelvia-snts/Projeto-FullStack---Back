@@ -11,22 +11,24 @@ export class MusicDatabase extends BaseDatabase {
         .insert({
           id: music.getId(),
           title: music.getTitle(),
-          author: music.getAuthor(),
+          author_id: music.getAuthorId(),
           date: music.getDate(),
           file: music.getFile(),
-          genre: music.getGenreId(),
-          album: music.getAlbum(),
+          genre_id: music.getGenreId(),
+          album: music.getAlbum()
         })
-        .into(MusicDatabase.TABLE_NAME);
+        .into(this.tableNames.musics);
     } catch (error) {
       throw new Error(error.sqlMessage || error.message);
     }
   }
 
-  public async getMusics(token: string): Promise<void> {
-    const musics = await this.getConnection()
+  public async getMusics(): Promise<Music> {
+    const result = await this.getConnection()
       .select("*")
-      .from(MusicDatabase.TABLE_NAME);
+      .from(MusicDatabase.TABLE_NAME)
+
+      return result[0]
   }
 
   public async getMusicByIdOrFail(id: string): Promise<Music> {
@@ -35,7 +37,7 @@ export class MusicDatabase extends BaseDatabase {
       .from(MusicDatabase.TABLE_NAME)
       .where({ id: id });
     if (!music[0]) {
-      throw new NotFoundError(`Unable to found Band with input: ${id}`);
+      throw new NotFoundError(`Unable to found músic with input: ${id}`);
     }
     return Music.toMusicModel(music[0])!;
   }

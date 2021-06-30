@@ -25,7 +25,6 @@ export abstract class BaseDatabase {
         },
       });
     }
-
     return BaseDatabase.connection;
   }
 
