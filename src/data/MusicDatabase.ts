@@ -24,11 +24,11 @@ export class MusicDatabase extends BaseDatabase {
   }
 
   public async getMusics(): Promise<Music> {
-    const result = await this.getConnection()
+    const result: any = await this.getConnection()
       .select("*")
       .from(MusicDatabase.TABLE_NAME)
 
-      return result[0]
+      return result
   }
 
   public async getMusicByIdOrFail(id: string): Promise<Music> {
