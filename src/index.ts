@@ -4,6 +4,7 @@ import express from "express";
 dotenv.config();
 const app = express();
 import { AddressInfo } from "net";
+import { genreRouter } from "./routes/genreRouter";
 import { musicRouter } from "./routes/musicRouter";
 import { userRouter } from "./routes/userRouter";
 
@@ -11,6 +12,7 @@ app.use(express.json());
 
 app.use("/users", userRouter);
 app.use("/music", musicRouter)
+app.use("/genre", genreRouter)
 
 
 
