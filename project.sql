@@ -23,3 +23,10 @@ CREATE TABLE IF NOT EXISTS Musics (
     FOREIGN KEY(author_id) REFERENCES Listeners(id),
     FOREIGN KEY(genre_id) REFERENCES Genre(id)
 );
+
+CREATE TABLE IF NOT EXISTS Album (
+	id VARCHAR(255) PRIMARY KEY,
+    user_id VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL UNIQUE,
+    FOREIGN KEY(user_id) REFERENCES Listeners(id)
+);
