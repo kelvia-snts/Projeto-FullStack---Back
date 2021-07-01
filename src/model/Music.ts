@@ -50,3 +50,5 @@ export interface MusicCreationDTO {
   genre_id: string[];
   album: string;
 }
+
+

@@ -15,18 +15,18 @@ export class MusicController {
         genre_id: req.body.genre_id,
         album: req.body.album,
       };
-
+      const token = req.headers.authorization as string
       const musicLogic = new MusicLogic(
         new MusicDatabase(),
         new IdGenerator(),
         new Authenticator()
       );
         
-      const result = await musicLogic.createMusic(input, req.headers.authorization as string);
-      res.status(200).send("Success");
+      const result = await musicLogic.createMusic(input, token);
+      res.status(200).send("Music created successfully");
     } catch (error) {
       res.status(error.customErrorCode || 400).send({
-        message: error.message,
+        message: error.message
       });
     }
     await BaseDatabase.destroyConnection();
@@ -41,8 +41,6 @@ export class MusicController {
         new Authenticator()
       );
       const musics = await musicLogic.getAllMusics(token);
-      console.log(musics);
-      
       res.status(200).send(musics);
     } catch (error) {
       res.status(error.customErrorCode || 400).send({
