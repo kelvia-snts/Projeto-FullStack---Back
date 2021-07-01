@@ -10,6 +10,10 @@
 * Postar uma música
 * ver todas as músicas 
 * ver informações de uma música específica
+* criar Album
+* Ver albums criados
+* adicioanar gêneros musicais
+* ver todos os gêneros musicais registrados
 
 
 ### Tecnologias utilizadas
