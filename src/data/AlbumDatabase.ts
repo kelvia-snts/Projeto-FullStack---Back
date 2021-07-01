@@ -19,14 +19,13 @@ export class AlbumDatabase extends BaseDatabase {
     }
   }
 
-  public async getUserAlbums(id: string): Promise<Album> {
-    const album: any = await this.getConnection()
+  public async getUserAlbums(token: string): Promise<Album> {
+    const albums: any = await this.getConnection()
     .select("*")
     .from(AlbumDatabase.TABLE_NAME)
-    .where({id: id})
-    if (!album[0]) {
-      throw new NotFoundError(`Unable to found músic with input: ${id}`);
-    }
-    return Album.toAlbumModel(album[0])!;
+
+    return albums
   }
+
+  //
 }
