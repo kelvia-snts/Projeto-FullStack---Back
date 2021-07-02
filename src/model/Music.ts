@@ -6,7 +6,7 @@ export class Music {
     private date: Date,
     private file: string,
     private genre_id: string[],
-    private album: string
+    private album_id: string
   ) {}
 
   public getId(): string {
@@ -27,11 +27,11 @@ export class Music {
   public getGenreId(): string[] {
     return this.genre_id;
   }
-  public getAlbum(): string {
-    return this.album;
+  public getAlbumId(): string {
+    return this.album_id;
   }
 
- public static toMusicModel(music: any): Music | undefined{
+  public static toMusicModel(music: any): Music | undefined {
     return new Music(
       music.id,
       music.title,
@@ -39,16 +39,14 @@ export class Music {
       music.date,
       music.file,
       music.genre_id,
-      music.album
+      music.album_id
     );
   }
 }
 
 export interface MusicCreationDTO {
-  title: string
+  title: string;
   file: string;
   genre_id: string[];
-  album: string;
+  album_id: string;
 }
-
-

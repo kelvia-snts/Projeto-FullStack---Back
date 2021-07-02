@@ -13,20 +13,20 @@ export class MusicController {
         title: req.body.title,
         file: req.body.file,
         genre_id: req.body.genre_id,
-        album: req.body.album,
+        album_id: req.body.album_id,
       };
-      const token = req.headers.authorization as string
+      const token = req.headers.authorization as string;
       const musicLogic = new MusicLogic(
         new MusicDatabase(),
         new IdGenerator(),
         new Authenticator()
       );
-        
+
       const result = await musicLogic.createMusic(input, token);
       res.status(200).send("Music created successfully");
     } catch (error) {
       res.status(error.customErrorCode || 400).send({
-        message: error.message
+        message: error.message,
       });
     }
     await BaseDatabase.destroyConnection();
@@ -46,24 +46,24 @@ export class MusicController {
       res.status(error.customErrorCode || 400).send({
         message: error.message,
       });
-    } 
+    }
   }
 
   async getMusicDetail(req: Request, res: Response) {
     try {
-      const {id} = req.params
-      const token = req.headers.authorization as string
+      const { id } = req.params;
+      const token = req.headers.authorization as string;
       const musicLogic = new MusicLogic(
         new MusicDatabase(),
         new IdGenerator(),
         new Authenticator()
       );
-      const music = await musicLogic.getMusicById(id, token );
+      const music = await musicLogic.getMusicById(id, token);
       res.status(200).send(music);
     } catch (error) {
       res.status(error.customErrorCode || 400).send({
         message: error.message,
       });
-    } 
+    }
   }
 }

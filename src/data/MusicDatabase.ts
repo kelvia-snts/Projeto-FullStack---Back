@@ -15,7 +15,7 @@ export class MusicDatabase extends BaseDatabase {
           date: music.getDate(),
           file: music.getFile(),
           genre_id: music.getGenreId(),
-          album: music.getAlbum()
+          album_id: music.getAlbumId()
         })
         .into(this.tableNames.musics);
     } catch (error) {

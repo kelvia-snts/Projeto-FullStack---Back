@@ -5,15 +5,15 @@ import { BaseDatabase } from "./BaseDatabase";
 export class AlbumDatabase extends BaseDatabase {
   private static TABLE_NAME = "Album";
 
-  public async createAlbum(album: Album): Promise<void>{
+  public async createAlbum(album: Album): Promise<void> {
     try {
       await this.getConnection()
         .insert({
           id: album.getId(),
           user_id: album.getUserId(),
-          name: album.getName()
+          name: album.getName(),
         })
-        .into(this.tableNames.albums)
+        .into(this.tableNames.albums);
     } catch (error) {
       throw new Error(error.sqlMessage || error.message);
     }
@@ -21,14 +21,13 @@ export class AlbumDatabase extends BaseDatabase {
 
   public async getUserAlbums(id: string): Promise<Album> {
     const albums: any = await this.getConnection()
-    .select("*")
-    .from(AlbumDatabase.TABLE_NAME)
-    .where({user_id: id})
+      .select("*")
+      .from(AlbumDatabase.TABLE_NAME)
+      .where({ user_id: id });
     /* if (!albums[0]) {
       throw new NotFoundError(`Unable to found User with input: ${id}`);
     } */
 
-
-    return Album.toAlbumModel(albums[0])!
+    return Album.toAlbumModel(albums[0])!;
   }
 }

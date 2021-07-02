@@ -11,15 +11,15 @@ export class GenreLogic {
     private genreDatabase: GenreDatabase,
     private idGenerator: IdGenerator,
     private authenticator: Authenticator
-  ){}
+  ) {}
 
   async createGenre(genre: GenreDTO, token: string) {
     try {
-      if(!genre.name){
-        throw new InvalidInputError("Invalid input to create genre")
+      if (!genre.name) {
+        throw new InvalidInputError("Invalid input to create genre");
       }
-      const tokenData = this.authenticator.getData(token)
-      if(!tokenData){
+      const tokenData = this.authenticator.getData(token);
+      if (!tokenData) {
         throw new UnauthorizedError("Unauthorized");
       }
       const genreId = this.idGenerator.generate();
@@ -29,7 +29,7 @@ export class GenreLogic {
           ...genre,
           id: genreId,
         })!
-      )
+      );
     } catch (error) {
       throw new CustomError(error.statusCode, error.message);
     }
@@ -37,10 +37,10 @@ export class GenreLogic {
 
   async getAllGenres(token: string): Promise<Genre> {
     const tokenData = this.authenticator.getData(token);
-    const result = this.genreDatabase.getGenres()
-    if(!tokenData){
+    const result = this.genreDatabase.getGenres();
+    if (!tokenData) {
       throw new UnauthorizedError("Unauthorized");
     }
-    return result
+    return result;
   }
 }

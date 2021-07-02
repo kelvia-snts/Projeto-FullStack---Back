@@ -15,16 +15,16 @@ export class UserController {
         nickname: req.body.nickname,
         email: req.body.email,
         password: req.body.password,
-        role: req.body.role
+        role: req.body.role,
       };
 
       const userLogic = new UserLogic(
-        new UserDatabase,
-        new IdGenerator,
-        new HashManager,
-        new Authenticator
+        new UserDatabase(),
+        new IdGenerator(),
+        new HashManager(),
+        new Authenticator()
       );
-      
+
       const token = await userLogic.registerUser(input);
       res.status(200).send({ token });
     } catch (error) {
@@ -33,24 +33,22 @@ export class UserController {
     await BaseDatabase.destroyConnection();
   }
 
-
   async login(req: Request, res: Response) {
     try {
       const loginData: UserLoginDTO = {
         login: req.body.login,
-        password: req.body.password
-      }
+        password: req.body.password,
+      };
 
       const userLogic = new UserLogic(
-        new UserDatabase,
-        new IdGenerator,
-        new HashManager,
-        new Authenticator
-      )
+        new UserDatabase(),
+        new IdGenerator(),
+        new HashManager(),
+        new Authenticator()
+      );
 
       const token = await userLogic.loginByEmailOrNickname(loginData);
-      res.status(200).send({token})
-
+      res.status(200).send({ token });
     } catch (error) {
       res.status(400).send({ error: error.message });
     }

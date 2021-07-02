@@ -14,7 +14,7 @@ export class MusicLogic {
   ) {}
   async createMusic(music: MusicCreationDTO, token: string) {
     try {
-      if (!music.title || !music.file || !music.genre_id || !music.album) {
+      if (!music.title || !music.file || !music.genre_id || !music.album_id) {
         throw new InvalidInputError("Invalid input to create music");
       }
       const tokenData = this.authenticator.getData(token);
@@ -39,20 +39,20 @@ export class MusicLogic {
 
   async getAllMusics(token: string): Promise<Music> {
     const tokenData = this.authenticator.getData(token);
-    const result =  this.musicDatabase.getMusics();
-    
+    const result = this.musicDatabase.getMusics();
+
     if (!tokenData) {
       throw new UnauthorizedError("Unauthorized");
     }
-    return result
+    return result;
   }
 
   async getMusicById(id: string, token: string): Promise<Music> {
     const tokenData = this.authenticator.getData(token);
-    const result = await this.musicDatabase.getMusicByIdOrFail(id)
+    const result = await this.musicDatabase.getMusicByIdOrFail(id);
     if (!tokenData) {
       throw new UnauthorizedError("Unauthorized");
     }
-    return result
+    return result;
   }
 }

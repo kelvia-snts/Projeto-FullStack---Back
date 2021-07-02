@@ -10,8 +10,8 @@ export abstract class BaseDatabase {
     users: "Listeners",
     musics: "Musics",
     genres: "Genre",
-    albums: "Album"
-  }
+    albums: "Album",
+  };
 
   protected getConnection(): Knex {
     if (!BaseDatabase.connection) {
@@ -23,7 +23,7 @@ export abstract class BaseDatabase {
           password: process.env.DB_PASSWORD,
           database: process.env.DB_SCHEMA,
           port: 3306,
-          multipleStatements: true
+          multipleStatements: true,
         },
       });
     }
