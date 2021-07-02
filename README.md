@@ -24,7 +24,7 @@
 
 ### Tecnologias utilizadas
 
-- Banco de dados SQL
+- Banco de dados MYSQL
 - Typescript
 - Nodejs
 - uuid - para gerar id seguros para os usuários
