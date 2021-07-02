@@ -2,7 +2,7 @@ import { CustomError } from "../error/CustomError";
 
 export enum UserRole {
   NORMAL = "NORMAL",
-  ADMIN = "ADMIN"
+  ADMIN = "ADMIN",
 }
 
 export class User {
@@ -66,7 +66,6 @@ export interface UserRegisterDTO {
 }
 
 export interface UserLoginDTO {
-  login: string,
-  password: string
+  login: string;
+  password: string;
 }
-

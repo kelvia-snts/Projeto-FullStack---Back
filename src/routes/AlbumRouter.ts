@@ -5,5 +5,5 @@ export const albumRouter = express.Router();
 
 const albumController = new AlbumController();
 
-albumRouter.post("/create", albumController.createAlbum)
-albumRouter.get("/albums", albumController.getUserAlbums)
+albumRouter.post("/create", albumController.createAlbum);
+albumRouter.get("/albums", albumController.getUserAlbums);

@@ -15,12 +15,21 @@ export class MusicDatabase extends BaseDatabase {
           date: music.getDate(),
           file: music.getFile(),
           genre_id: music.getGenreId(),
-          album: music.getAlbum()
+          album_id: music.getAlbumId()
         })
         .into(this.tableNames.musics);
     } catch (error) {
       throw new Error(error.sqlMessage || error.message);
     }
+  }
+
+  public async getUserMusics(id: string): Promise<Music> {
+    const musics: any = await this.getConnection()
+      .select("*")
+      .from(MusicDatabase.TABLE_NAME)
+      .where({ author_id: id });
+
+    return musics;
   }
 
   public async getMusics(): Promise<Music> {

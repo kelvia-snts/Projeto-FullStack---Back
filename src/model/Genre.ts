@@ -15,5 +15,5 @@ export class Genre {
 }
 
 export interface GenreDTO {
-  name: string
+  name: string;
 }

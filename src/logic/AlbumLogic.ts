@@ -1,7 +1,6 @@
 import { AlbumDatabase } from "../data/AlbumDatabase";
 import { CustomError } from "../error/CustomError";
 import { InvalidInputError } from "../error/InvalidInputError";
-import { NotFoundError } from "../error/NotFoundError";
 import { UnauthorizedError } from "../error/UnauthorizedError";
 import { Album, AlbumDTO } from "../model/Album";
 import { Authenticator } from "../services/Authenticator";
@@ -16,7 +15,7 @@ export class AlbumLogic {
 
   async createAlbum(album: AlbumDTO, token: string) {
     try {
-      if(!album.name){
+      if (!album.name) {
         throw new InvalidInputError("Invalid input to create music");
       }
       const tokenData = this.authenticator.getData(token);
@@ -30,9 +29,9 @@ export class AlbumLogic {
         Album.toAlbumModel({
           ...album,
           id: albumId,
-          user_id: userId
+          user_id: userId,
         })!
-      )
+      );
     } catch (error) {
       throw new CustomError(error.statusCode, error.message);
     }
@@ -40,11 +39,11 @@ export class AlbumLogic {
 
   async getUserAlbums(token: string): Promise<Album> {
     const tokenData = this.authenticator.getData(token);
-    const id = tokenData.id
-    const albums = await this.albumDatabase.getUserAlbums(id)
-    if(!tokenData){
+    const id = tokenData.id;
+    const albums = await this.albumDatabase.getUserAlbums(id);
+    if (!tokenData) {
       throw new UnauthorizedError("Unauthorized");
     }
-    return albums
+    return albums;
   }
 }

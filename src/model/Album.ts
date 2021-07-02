@@ -10,7 +10,7 @@ export class Album {
   }
 
   public getUserId(): string {
-    return this. user_id;
+    return this.user_id;
   }
 
   public getName(): string {

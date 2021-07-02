@@ -1,0 +1,101 @@
+### CADASTRO
+
+POST http://localhost:3003/users/register
+Content-Type: application/json
+
+{
+	"name": "Eduardo Murilo",
+  "nickname": "dudu",
+	"email": "eduardo@email.com",
+	"password": "123456",
+  "role": "NORMAL"
+}
+
+### LOGIN
+
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+	"login": "eduardo@email.com",
+	"password": "123456"
+}
+
+### CRIAR MÚSIC 
+
+POST http://localhost:3003/music/create
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4OGU2NGRhLTZjY2QtNDliMi05ZDk2LTg0MDlhN2FiNWZmYyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjUyNTYzMDQsImV4cCI6MTYyNTI1ODEwNH0.sQdUnpI9IBW-z3yE_lv0IIopMNL9T0dDqnCT7tZbSGo
+
+{
+	"title": "O que é o que é",
+  "file": "spotify:track:2CoKGyZavJWTFUPyvWoj0b",
+  "genre_id": "d5e66884-2172-4a2a-829d-df5f8fee6059",
+  "album_id": "d0bc36c4-e663-426d-9d0a-721dbd8d757e"
+}
+
+### MOSTRAR MÚSICAS DO USUÁRIO LOGADO
+
+GET http://localhost:3003/music/all
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4OGU2NGRhLTZjY2QtNDliMi05ZDk2LTg0MDlhN2FiNWZmYyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjUyNTYzMDQsImV4cCI6MTYyNTI1ODEwNH0.sQdUnpI9IBW-z3yE_lv0IIopMNL9T0dDqnCT7tZbSGo
+
+### MOSTRAR TODAS AS MÚSICAS
+
+GET http://localhost:3003/music/feed
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4OGU2NGRhLTZjY2QtNDliMi05ZDk2LTg0MDlhN2FiNWZmYyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjUyNTQyMDksImV4cCI6MTYyNTI1NjAwOX0.3PRvzvF0YSbR6K8hBmHjjvFceEXYF0E_Bqjw7_ZxB1Y
+
+### MOSTRAR DETALHE de um MÚSICA
+
+GET http://localhost:3003/music/bc771451-80c6-4e63-9581-aa14d3e5b033
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4OGU2NGRhLTZjY2QtNDliMi05ZDk2LTg0MDlhN2FiNWZmYyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjUwNjQ4NjksImV4cCI6MTYyNTA2NjY2OX0.QGfRn-NdNcucb-Y_dpOaDTMsn5ZI2yqRn89wyvO1SR4
+
+
+### CRIAR GÊNEROS MUSICAIS
+POST http://localhost:3003/genre/create
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4OGU2NGRhLTZjY2QtNDliMi05ZDk2LTg0MDlhN2FiNWZmYyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjUyNTQyMDksImV4cCI6MTYyNTI1NjAwOX0.3PRvzvF0YSbR6K8hBmHjjvFceEXYF0E_Bqjw7_ZxB1Y
+
+{
+	"name": "Brega"
+}
+
+### MOSTRAR TODOS OS GENEROS 
+
+GET http://localhost:3003/genre/all
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZiZDI4ODA0LTAzYjctNDY3Yy1hYTMxLWQ4YTY5MDBhMzcwOSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyNTE2MTc1NCwiZXhwIjoxNjI1MTYzNTU0fQ.4QEBYuoq48fRqHp8wb3QKFw-arG_wKZDT0YuVBuWBZk
+
+### CRIAR ALBUM
+POST http://localhost:3003/album/create
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4OGU2NGRhLTZjY2QtNDliMi05ZDk2LTg0MDlhN2FiNWZmYyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjUyNTQyMDksImV4cCI6MTYyNTI1NjAwOX0.3PRvzvF0YSbR6K8hBmHjjvFceEXYF0E_Bqjw7_ZxB1Y
+
+{
+	"name": "Favoritas"
+}
+
+
+### MOSTRAR TODOS OS ÁLBUMS DA PESSOA LOGADA
+
+GET http://localhost:3003/album/albums
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4OGU2NGRhLTZjY2QtNDliMi05ZDk2LTg0MDlhN2FiNWZmYyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjUyNTYzMDQsImV4cCI6MTYyNTI1ODEwNH0.sQdUnpI9IBW-z3yE_lv0IIopMNL9T0dDqnCT7tZbSGo
+
+
+### SEGUIR
+
+PUT http://localhost:3003/users/follow
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZiZDI4ODA0LTAzYjctNDY3Yy1hYTMxLWQ4YTY5MDBhMzcwOSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyNTI0OTY4NiwiZXhwIjoxNjI1MjUxNDg2fQ.p-oc-Cfrp0S2DElvUnE05jqYE72A4MQVJrhtTMjhVy4
+
+{
+	"followed": "d88e64da-6ccd-49b2-9d96-8409a7ab5ffc"
+}
+
+### DEIXAR DE SEGUIR 
+
+DELETE http://localhost:3003/users/unfollow
+Content-Type: application/json
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZiZDI4ODA0LTAzYjctNDY3Yy1hYTMxLWQ4YTY5MDBhMzcwOSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyNTI1MjA3OCwiZXhwIjoxNjI1MjUzODc4fQ.nTEjczM79zHFpUm82C_hsZTjsjCr26COwWBEyXsLwT8
+
+{
+	"followed": "d88e64da-6ccd-49b2-9d96-8409a7ab5ffc"
+}

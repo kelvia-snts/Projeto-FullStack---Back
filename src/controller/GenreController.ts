@@ -10,18 +10,18 @@ export class GenreController {
   async createGenre(req: Request, res: Response) {
     try {
       const input: GenreDTO = {
-        name: req.body.name
-      }
-      const token = req.headers.authorization as string
+        name: req.body.name,
+      };
+      const token = req.headers.authorization as string;
       const genreLogic = new GenreLogic(
         new GenreDatabase(),
         new IdGenerator(),
         new Authenticator()
       );
-      const result = await genreLogic.createGenre(input, token)
+      const result = await genreLogic.createGenre(input, token);
       res.status(200).send("Genre created successfully");
     } catch (error) {
-      res.status(error.customErrorCode || 400).send({message: error.message});
+      res.status(error.customErrorCode || 400).send({ message: error.message });
     }
     await BaseDatabase.destroyConnection();
   }
@@ -34,8 +34,8 @@ export class GenreController {
         new IdGenerator(),
         new Authenticator()
       );
-      const genres = await genreLogic.getAllGenres(token)
-      res.status(200).send(genres)
+      const genres = await genreLogic.getAllGenres(token);
+      res.status(200).send(genres);
     } catch (error) {
       res.status(error.customErrorCode || 400).send({
         message: error.message,
