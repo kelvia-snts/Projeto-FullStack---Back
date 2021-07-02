@@ -11,7 +11,7 @@
 * ver todas as músicas 
 * ver informações de uma música específica
 * criar Album
-* Ver albums criados
+* Ver apenas os albums do usuário logado
 * adicioanar gêneros musicais
 * ver todos os gêneros musicais registrados
 
