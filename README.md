@@ -4,7 +4,7 @@
 * npm install - para instalação das dependências
 * npm run dev - para rodar o projeto
 
-### O que encontrará neste Projeto
+### O que funciona 
 * Cadastro de usuário retornando um token
 * Login de usuário retornando um token
 * Postar uma música
@@ -14,6 +14,12 @@
 * Ver apenas os albums do usuário logado
 * adicioanar gêneros musicais
 * ver todos os gêneros musicais registrados
+* seguir outro usuário
+* Deixar de seguir usuário
+
+### O que não funciona 
+
+
 
 
 ### Tecnologias utilizadas

@@ -1,7 +1,6 @@
 import { AlbumDatabase } from "../data/AlbumDatabase";
 import { CustomError } from "../error/CustomError";
 import { InvalidInputError } from "../error/InvalidInputError";
-import { NotFoundError } from "../error/NotFoundError";
 import { UnauthorizedError } from "../error/UnauthorizedError";
 import { Album, AlbumDTO } from "../model/Album";
 import { Authenticator } from "../services/Authenticator";

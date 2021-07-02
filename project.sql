@@ -30,3 +30,11 @@ CREATE TABLE IF NOT EXISTS Album (
     name VARCHAR(255) NOT NULL UNIQUE,
     FOREIGN KEY(user_id) REFERENCES Listeners(id)
 );
+
+CREATE TABLE IF NOT EXISTS Music_follow (
+	follower VARCHAR(255) NOT NULL,
+    followed VARCHAR(255) NOT NULL,
+    FOREIGN KEY (follower) references Listeners(id),
+    FOREIGN KEY (followed) references Listeners(id),
+    CONSTRAINT PK_friendship PRIMARY KEY (follower, followed)
+);

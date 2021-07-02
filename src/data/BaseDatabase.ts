@@ -11,6 +11,7 @@ export abstract class BaseDatabase {
     musics: "Musics",
     genres: "Genre",
     albums: "Album",
+    follow: "Music_follow",
   };
 
   protected getConnection(): Knex {
