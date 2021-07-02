@@ -40,7 +40,8 @@ export class AlbumLogic {
 
   async getUserAlbums(token: string): Promise<Album> {
     const tokenData = this.authenticator.getData(token);
-    const albums = await this.albumDatabase.getUserAlbums(token)
+    const id = tokenData.id
+    const albums = await this.albumDatabase.getUserAlbums(id)
     if(!tokenData){
       throw new UnauthorizedError("Unauthorized");
     }
