@@ -29,7 +29,7 @@ export class MusicDatabase extends BaseDatabase {
       .from(MusicDatabase.TABLE_NAME)
       .where({ author_id: id });
 
-    return Music.toMusicModel(musics[0])!;
+    return musics;
   }
 
   public async getMusics(): Promise<Music> {

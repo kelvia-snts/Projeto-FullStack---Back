@@ -25,6 +25,6 @@ export class AlbumDatabase extends BaseDatabase {
       .from(AlbumDatabase.TABLE_NAME)
       .where({ user_id: id });
 
-    return Album.toAlbumModel(albums[0])!;
+    return albums;
   }
 }
