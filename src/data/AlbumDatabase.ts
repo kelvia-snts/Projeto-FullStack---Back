@@ -24,9 +24,6 @@ export class AlbumDatabase extends BaseDatabase {
       .select("*")
       .from(AlbumDatabase.TABLE_NAME)
       .where({ user_id: id });
-    /* if (!albums[0]) {
-      throw new NotFoundError(`Unable to found User with input: ${id}`);
-    } */
 
     return Album.toAlbumModel(albums[0])!;
   }

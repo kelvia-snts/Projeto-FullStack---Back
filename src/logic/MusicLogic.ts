@@ -37,6 +37,16 @@ export class MusicLogic {
     }
   }
 
+  async getUserMusic(token: string): Promise<Music> {
+    const tokenData = this.authenticator.getData(token);
+    const id = tokenData.id;
+    const musics = await this.musicDatabase.getUserMusics(id);   
+    if (!tokenData) {
+      throw new UnauthorizedError("Unauthorized");
+    }
+    return musics;
+  }
+
   async getAllMusics(token: string): Promise<Music> {
     const tokenData = this.authenticator.getData(token);
     const result = this.musicDatabase.getMusics();

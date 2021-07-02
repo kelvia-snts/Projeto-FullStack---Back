@@ -32,6 +32,23 @@ export class MusicController {
     await BaseDatabase.destroyConnection();
   }
 
+  async getUSerMusics(req: Request, res: Response) {
+    try {
+      const token = req.headers.authorization as string;
+      const musicLogic = new MusicLogic(
+        new MusicDatabase(),
+        new IdGenerator(),
+        new Authenticator()
+      );
+      const musics = await musicLogic.getUserMusic(token);
+      res.status(200).send(musics);
+    } catch (error) {
+      res.status(error.customErrorCode || 400).send({
+        message: error.message,
+      });
+    }
+  }
+
   async getAllMusics(req: Request, res: Response) {
     try {
       const token = req.headers.authorization as string;
@@ -41,7 +58,7 @@ export class MusicController {
         new Authenticator()
       );
       const musics = await musicLogic.getAllMusics(token);
-      res.status(200).send(musics);
+      res.status(200).send({musics: musics});
     } catch (error) {
       res.status(error.customErrorCode || 400).send({
         message: error.message,

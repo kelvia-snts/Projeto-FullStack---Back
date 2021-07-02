@@ -17,7 +17,7 @@ POST http://localhost:3003/users/login
 Content-Type: application/json
 
 {
-	"login": "keldev9@gmail.com",
+	"login": "eduardo@email.com",
 	"password": "123456"
 }
 
@@ -25,19 +25,25 @@ Content-Type: application/json
 
 POST http://localhost:3003/music/create
 Content-Type: application/json
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZiZDI4ODA0LTAzYjctNDY3Yy1hYTMxLWQ4YTY5MDBhMzcwOSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyNTIyNTM4MiwiZXhwIjoxNjI1MjI3MTgyfQ.vG25B5xR-PZzt7LVRpN_dhkXS0giHWU-23eRWxA3KPs
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4OGU2NGRhLTZjY2QtNDliMi05ZDk2LTg0MDlhN2FiNWZmYyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjUyNTQyMDksImV4cCI6MTYyNTI1NjAwOX0.3PRvzvF0YSbR6K8hBmHjjvFceEXYF0E_Bqjw7_ZxB1Y
 
 {
-	"title": "Addicted",
-  "file": "https://open.spotify.com/track/1vqYqiZA1Su4GgqIO4oVSY?si=55375459f26b48d1",
-  "genre_id": "3824aa6f-47af-4fa4-85f0-efe6555e9341",
-  "album_id": "17a3a43c-ca57-448b-85c3-c190334bfc25"
+	"title": "O que é o que é",
+  "file": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4OGU2NGRhLTZjY2QtNDliMi05ZDk2LTg0MDlhN2FiNWZmYyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjUyNTQyMDksImV4cCI6MTYyNTI1NjAwOX0.3PRvzvF0YSbR6K8hBmHjjvFceEXYF0E_Bqjw7_ZxB1Y",
+  "genre_id": "d5e66884-2172-4a2a-829d-df5f8fee6059",
+  "album_id": "d0bc36c4-e663-426d-9d0a-721dbd8d757e"
 }
+
+### MOSTRAR MÚSICAS DO USUÁRIO LOGADO
+
+GET http://localhost:3003/music/all
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4OGU2NGRhLTZjY2QtNDliMi05ZDk2LTg0MDlhN2FiNWZmYyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjUyNTQyMDksImV4cCI6MTYyNTI1NjAwOX0.3PRvzvF0YSbR6K8hBmHjjvFceEXYF0E_Bqjw7_ZxB1Y
+
 
 ### MOSTRAR TODAS AS MÚSICAS
 
-GET http://localhost:3003/music/all
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZiZDI4ODA0LTAzYjctNDY3Yy1hYTMxLWQ4YTY5MDBhMzcwOSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyNTE2MTc1NCwiZXhwIjoxNjI1MTYzNTU0fQ.4QEBYuoq48fRqHp8wb3QKFw-arG_wKZDT0YuVBuWBZk
+GET http://localhost:3003/music/feed
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4OGU2NGRhLTZjY2QtNDliMi05ZDk2LTg0MDlhN2FiNWZmYyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjUyNTQyMDksImV4cCI6MTYyNTI1NjAwOX0.3PRvzvF0YSbR6K8hBmHjjvFceEXYF0E_Bqjw7_ZxB1Y
 
 ### MOSTRAR DETALHE de um MÚSICA
 
@@ -48,7 +54,7 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4OGU2NGRhLTZjY2Qt
 ### CRIAR GÊNEROS MUSICAIS
 POST http://localhost:3003/genre/create
 Content-Type: application/json
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4OGU2NGRhLTZjY2QtNDliMi05ZDk2LTg0MDlhN2FiNWZmYyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjUxNDU2NzQsImV4cCI6MTYyNTE0NzQ3NH0.y_NNoIU7zkoSvhAeHEIohA4vVPyfQwyBzI_g8vmwqU4
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4OGU2NGRhLTZjY2QtNDliMi05ZDk2LTg0MDlhN2FiNWZmYyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjUyNTQyMDksImV4cCI6MTYyNTI1NjAwOX0.3PRvzvF0YSbR6K8hBmHjjvFceEXYF0E_Bqjw7_ZxB1Y
 
 {
 	"name": "Brega"
@@ -62,10 +68,10 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZiZDI4ODA0LTAzYjct
 ### CRIAR ALBUM
 POST http://localhost:3003/album/create
 Content-Type: application/json
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZiZDI4ODA0LTAzYjctNDY3Yy1hYTMxLWQ4YTY5MDBhMzcwOSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyNTE2MTc1NCwiZXhwIjoxNjI1MTYzNTU0fQ.4QEBYuoq48fRqHp8wb3QKFw-arG_wKZDT0YuVBuWBZk
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQ4OGU2NGRhLTZjY2QtNDliMi05ZDk2LTg0MDlhN2FiNWZmYyIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjUyNTQyMDksImV4cCI6MTYyNTI1NjAwOX0.3PRvzvF0YSbR6K8hBmHjjvFceEXYF0E_Bqjw7_ZxB1Y
 
 {
-	"name": "Para praticar yoga"
+	"name": "Favoritas"
 }
 
 
