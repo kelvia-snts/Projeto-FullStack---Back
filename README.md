@@ -11,7 +11,7 @@
 - Login de usuário retornando um token.
 - Postar uma música.
 - Um usuário logado pode ver suas músicas postadas.
-- Usuários podem ver as músicas de todos os usuários.
+- Usuários podem ver as músicas postadas por todos (feed).
 - ver informações de uma música específica.
 - criar Album.
 - Ver apenas os albums do usuário logado.
