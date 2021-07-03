@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { BaseDatabase } from "../data/BaseDatabase";
-import { MusicDatabase } from "../data/MusicDatabase";
-import { MusicLogic } from "../logic/MusicLogic";
-import { MusicCreationDTO } from "../model/Music";
-import { Authenticator } from "../services/Authenticator";
-import { IdGenerator } from "../services/IdGenerator";
+import { BaseDatabase } from "../../data/BaseDatabase";
+import { MusicDatabase } from "../../data/musics/MusicDatabase";
+import { MusicLogic } from "../../logic/music/MusicLogic";
+import { MusicCreationDTO } from "../../model/Music";
+import { Authenticator } from "../../services/Authenticator";
+import { IdGenerator } from "../../services/IdGenerator";
 
 export class MusicController {
   async createMusic(req: Request, res: Response) {

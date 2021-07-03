@@ -1,5 +1,5 @@
-import { Genre } from "../model/Genre";
-import { BaseDatabase } from "./BaseDatabase";
+import { Genre } from "../../model/Genre";
+import { BaseDatabase } from "../BaseDatabase";
 
 export class GenreDatabase extends BaseDatabase {
   private static TABLE_NAME = "Genre";

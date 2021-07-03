@@ -1,5 +1,5 @@
-import { Friendship } from "../model/Friendship";
-import { BaseDatabase } from "./BaseDatabase";
+import { Friendship } from "../../model/Friendship";
+import { BaseDatabase } from "../BaseDatabase";
 
 export class UndoFriendshipDatabase extends BaseDatabase {
   private static TABLE_NAME = "Music_follow";

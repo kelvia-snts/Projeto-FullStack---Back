@@ -1,6 +1,5 @@
-import { NotFoundError } from "../error/NotFoundError";
-import { Album } from "../model/Album";
-import { BaseDatabase } from "./BaseDatabase";
+import { Album } from "../../model/Album";
+import { BaseDatabase } from "../BaseDatabase";
 
 export class AlbumDatabase extends BaseDatabase {
   private static TABLE_NAME = "Album";

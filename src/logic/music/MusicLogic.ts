@@ -1,10 +1,10 @@
-import { MusicDatabase } from "../data/MusicDatabase";
-import { CustomError } from "../error/CustomError";
-import { InvalidInputError } from "../error/InvalidInputError";
-import { UnauthorizedError } from "../error/UnauthorizedError";
-import { Music, MusicCreationDTO } from "../model/Music";
-import { Authenticator } from "../services/Authenticator";
-import { IdGenerator } from "../services/IdGenerator";
+import { MusicDatabase } from "../../data/musics/MusicDatabase";
+import { CustomError } from "../../error/CustomError";
+import { InvalidInputError } from "../../error/InvalidInputError";
+import { UnauthorizedError } from "../../error/UnauthorizedError";
+import { Music, MusicCreationDTO } from "../../model/Music";
+import { IdGenerator } from "../../services/IdGenerator";
+import { Authenticator } from "../../services/Authenticator";
 
 export class MusicLogic {
   constructor(

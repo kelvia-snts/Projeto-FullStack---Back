@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { AlbumDatabase } from "../data/AlbumDatabase";
-import { BaseDatabase } from "../data/BaseDatabase";
-import { AlbumLogic } from "../logic/AlbumLogic";
-import { AlbumDTO } from "../model/Album";
-import { Authenticator } from "../services/Authenticator";
-import { IdGenerator } from "../services/IdGenerator";
+import { BaseDatabase } from "../../data/BaseDatabase";
+import { AlbumDatabase } from "../../data/musics/AlbumDatabase";
+import { AlbumLogic } from "../../logic/music/AlbumLogic";
+import { AlbumDTO } from "../../model/Album";
+import { Authenticator } from "../../services/Authenticator";
+import { IdGenerator } from "../../services/IdGenerator";
 
 export class AlbumController {
   async createAlbum(req: Request, res: Response) {

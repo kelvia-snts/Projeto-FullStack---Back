@@ -1,10 +1,10 @@
-import { GenreDatabase } from "../data/GenreDatabase";
-import { CustomError } from "../error/CustomError";
-import { InvalidInputError } from "../error/InvalidInputError";
-import { UnauthorizedError } from "../error/UnauthorizedError";
-import { Genre, GenreDTO } from "../model/Genre";
-import { Authenticator } from "../services/Authenticator";
-import { IdGenerator } from "../services/IdGenerator";
+import { GenreDatabase } from "../../data/musics/GenreDatabase";
+import { CustomError } from "../../error/CustomError";
+import { InvalidInputError } from "../../error/InvalidInputError";
+import { UnauthorizedError } from "../../error/UnauthorizedError";
+import { Genre, GenreDTO } from "../../model/Genre";
+import { Authenticator } from "../../services/Authenticator";
+import { IdGenerator } from "../../services/IdGenerator";
 
 export class GenreLogic {
   constructor(

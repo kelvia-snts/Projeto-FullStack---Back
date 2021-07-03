@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import { BaseDatabase } from "../data/BaseDatabase";
-import { UserDatabase } from "../data/UserDatabase";
-import { UserLogic } from "../logic/UserLogic";
-import { UserLoginDTO, UserRegisterDTO } from "../model/User";
-import { Authenticator } from "../services/Authenticator";
-import { HashManager } from "../services/HashManager";
-import { IdGenerator } from "../services/IdGenerator";
+import { BaseDatabase } from "../../data/BaseDatabase";
+import { UserDatabase } from "../../data/user/UserDatabase";
+import { UserLogic } from "../../logic/user/UserLogic";
+import { UserLoginDTO, UserRegisterDTO } from "../../model/User";
+import { Authenticator } from "../../services/Authenticator";
+import { HashManager } from "../../services/HashManager";
+import { IdGenerator } from "../../services/IdGenerator";
 
 export class UserController {
   async register(req: Request, res: Response) {

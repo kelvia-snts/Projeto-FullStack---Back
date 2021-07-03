@@ -1,10 +1,10 @@
-import { UserDatabase } from "../data/UserDatabase";
-import { CustomError } from "../error/CustomError";
-import { InvalidInputError } from "../error/InvalidInputError";
-import { User, UserLoginDTO, UserRegisterDTO } from "../model/User";
-import { Authenticator } from "../services/Authenticator";
-import { HashManager } from "../services/HashManager";
-import { IdGenerator } from "../services/IdGenerator";
+import { UserDatabase } from "../../data/user/UserDatabase";
+import { CustomError } from "../../error/CustomError";
+import { InvalidInputError } from "../../error/InvalidInputError";
+import { User, UserLoginDTO, UserRegisterDTO } from "../../model/User";
+import { Authenticator } from "../../services/Authenticator";
+import { HashManager } from "../../services/HashManager";
+import { IdGenerator } from "../../services/IdGenerator";
 
 export class UserLogic {
   constructor(
