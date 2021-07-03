@@ -1,6 +1,5 @@
-import { NotFoundError } from "../error/NotFoundError";
-import { Album } from "../model/Album";
-import { BaseDatabase } from "./BaseDatabase";
+import { Album } from "../../model/Album";
+import { BaseDatabase } from "../BaseDatabase";
 
 export class AlbumDatabase extends BaseDatabase {
   private static TABLE_NAME = "Album";
@@ -21,7 +20,7 @@ export class AlbumDatabase extends BaseDatabase {
 
   public async getUserAlbums(id: string): Promise<Album> {
     const albums: any = await this.getConnection()
-      .select("*")
+      .select("name")
       .from(AlbumDatabase.TABLE_NAME)
       .where({ user_id: id });
 

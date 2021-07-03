@@ -1,10 +1,10 @@
-import { AlbumDatabase } from "../data/AlbumDatabase";
-import { CustomError } from "../error/CustomError";
-import { InvalidInputError } from "../error/InvalidInputError";
-import { UnauthorizedError } from "../error/UnauthorizedError";
-import { Album, AlbumDTO } from "../model/Album";
-import { Authenticator } from "../services/Authenticator";
-import { IdGenerator } from "../services/IdGenerator";
+import { AlbumDatabase } from "../../data/musics/AlbumDatabase";
+import { CustomError } from "../../error/CustomError";
+import { InvalidInputError } from "../../error/InvalidInputError";
+import { UnauthorizedError } from "../../error/UnauthorizedError";
+import { Album, AlbumDTO } from "../../model/Album";
+import { Authenticator } from "../../services/Authenticator";
+import { IdGenerator } from "../../services/IdGenerator";
 
 export class AlbumLogic {
   constructor(

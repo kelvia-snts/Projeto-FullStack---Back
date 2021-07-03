@@ -1,7 +1,7 @@
 import express from "express";
-import { FollowController } from "../controller/FollowController";
-import { UnfollowController } from "../controller/UnfollowController";
-import { UserController } from "../controller/UserController";
+import { FollowController } from "../controller/user/FollowController";
+import { UnfollowController } from "../controller/user/UnfollowController";
+import { UserController } from "../controller/user/UserController";
 
 export const userRouter = express.Router();
 

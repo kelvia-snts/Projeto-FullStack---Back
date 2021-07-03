@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { BaseDatabase } from "../data/BaseDatabase";
-import { UndoFriendshipDatabase } from "../data/undoFriendship";
-import { UnfollowLogic } from "../logic/Unfollow";
-import { FriendshipDTO } from "../model/Friendship";
-import { Authenticator } from "../services/Authenticator";
+import { BaseDatabase } from "../../data/BaseDatabase";
+import { UndoFriendshipDatabase } from "../../data/user/undoFriendship";
+import { UnfollowLogic } from "../../logic/user/Unfollow";
+import { FriendshipDTO } from "../../model/Friendship";
+import { Authenticator } from "../../services/Authenticator";
 
 export class UnfollowController {
   async unfollow(req: Request, res: Response) {

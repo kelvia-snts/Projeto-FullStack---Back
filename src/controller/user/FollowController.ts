@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
-import { BaseDatabase } from "../data/BaseDatabase";
-import { FriendshipDatabase } from "../data/FriendshipDatabase";
-import { FollowLogic } from "../logic/FollowLogic";
-import { FriendshipDTO } from "../model/Friendship";
-import { Authenticator } from "../services/Authenticator";
+import { BaseDatabase } from "../../data/BaseDatabase";
+import { FriendshipDatabase } from "../../data/user/FriendshipDatabase";
+import { FollowLogic } from "../../logic/user/FollowLogic";
+import { FriendshipDTO } from "../../model/Friendship";
+import { Authenticator } from "../../services/Authenticator";
 
 export class FollowController {
   async follow(req: Request, res: Response) {

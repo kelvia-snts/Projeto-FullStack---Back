@@ -1,9 +1,9 @@
-import { UndoFriendshipDatabase } from "../data/undoFriendship";
-import { CustomError } from "../error/CustomError";
-import { InvalidInputError } from "../error/InvalidInputError";
-import { UnauthorizedError } from "../error/UnauthorizedError";
-import { Friendship, FriendshipDTO } from "../model/Friendship";
-import { Authenticator } from "../services/Authenticator";
+import { UndoFriendshipDatabase } from "../../data/user/undoFriendship";
+import { CustomError } from "../../error/CustomError";
+import { InvalidInputError } from "../../error/InvalidInputError";
+import { UnauthorizedError } from "../../error/UnauthorizedError";
+import { Friendship, FriendshipDTO } from "../../model/Friendship";
+import { Authenticator } from "../../services/Authenticator";
 
 export class UnfollowLogic {
   constructor(

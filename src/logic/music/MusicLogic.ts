@@ -1,10 +1,10 @@
-import { MusicDatabase } from "../data/MusicDatabase";
-import { CustomError } from "../error/CustomError";
-import { InvalidInputError } from "../error/InvalidInputError";
-import { UnauthorizedError } from "../error/UnauthorizedError";
-import { Music, MusicCreationDTO } from "../model/Music";
-import { Authenticator } from "../services/Authenticator";
-import { IdGenerator } from "../services/IdGenerator";
+import { MusicDatabase } from "../../data/musics/MusicDatabase";
+import { CustomError } from "../../error/CustomError";
+import { InvalidInputError } from "../../error/InvalidInputError";
+import { UnauthorizedError } from "../../error/UnauthorizedError";
+import { Music, MusicCreationDTO } from "../../model/Music";
+import { IdGenerator } from "../../services/IdGenerator";
+import { Authenticator } from "../../services/Authenticator";
 
 export class MusicLogic {
   constructor(
@@ -40,7 +40,7 @@ export class MusicLogic {
   async getUserMusic(token: string): Promise<Music> {
     const tokenData = this.authenticator.getData(token);
     const id = tokenData.id;
-    const musics = await this.musicDatabase.getUserMusics(id);   
+    const musics = await this.musicDatabase.getUserMusics(id);
     if (!tokenData) {
       throw new UnauthorizedError("Unauthorized");
     }
@@ -49,7 +49,7 @@ export class MusicLogic {
 
   async getAllMusics(token: string): Promise<Music> {
     const tokenData = this.authenticator.getData(token);
-    const result = this.musicDatabase.getMusics();
+    const result = await this.musicDatabase.getMusics();
 
     if (!tokenData) {
       throw new UnauthorizedError("Unauthorized");
@@ -63,6 +63,15 @@ export class MusicLogic {
     if (!tokenData) {
       throw new UnauthorizedError("Unauthorized");
     }
+    return result;
+  }
+
+  async deleteMusic(id: string, token: string): Promise<void> {
+    const tokenData = this.authenticator.getData(token);
+    if (!tokenData) {
+      throw new UnauthorizedError("Unauthorized");
+    }
+    const result = await this.musicDatabase.deleteMusic(id);
     return result;
   }
 }

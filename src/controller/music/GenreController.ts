@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import { BaseDatabase } from "../data/BaseDatabase";
-import { GenreDatabase } from "../data/GenreDatabase";
-import { GenreLogic } from "../logic/GenreLogic";
-import { GenreDTO } from "../model/Genre";
-import { Authenticator } from "../services/Authenticator";
-import { IdGenerator } from "../services/IdGenerator";
+import { BaseDatabase } from "../../data/BaseDatabase";
+import { GenreDatabase } from "../../data/musics/GenreDatabase";
+import { GenreLogic } from "../../logic/music/GenreLogic";
+import { GenreDTO } from "../../model/Genre";
+import { Authenticator } from "../../services/Authenticator";
+import { IdGenerator } from "../../services/IdGenerator";
 
 export class GenreController {
   async createGenre(req: Request, res: Response) {

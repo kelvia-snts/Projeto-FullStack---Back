@@ -1,9 +1,9 @@
-import { FriendshipDatabase } from "../data/FriendshipDatabase";
-import { CustomError } from "../error/CustomError";
-import { InvalidInputError } from "../error/InvalidInputError";
-import { UnauthorizedError } from "../error/UnauthorizedError";
-import { Friendship, FriendshipDTO } from "../model/Friendship";
-import { Authenticator } from "../services/Authenticator";
+import { FriendshipDatabase } from "../../data/user/FriendshipDatabase";
+import { CustomError } from "../../error/CustomError";
+import { InvalidInputError } from "../../error/InvalidInputError";
+import { UnauthorizedError } from "../../error/UnauthorizedError";
+import { Friendship, FriendshipDTO } from "../../model/Friendship";
+import { Authenticator } from "../../services/Authenticator";
 
 export class FollowLogic {
   constructor(
