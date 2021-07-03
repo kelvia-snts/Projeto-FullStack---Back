@@ -19,6 +19,7 @@
 - ver todos os gêneros musicais registrados.
 - seguir outro usuário.
 - Deixar de seguir usuário.
+- excluir música
 
 ### O que não funciona
 
