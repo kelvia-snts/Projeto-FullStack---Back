@@ -17,4 +17,5 @@ musicRouter.post("/createAlbum", albumController.createAlbum);
 musicRouter.get("/albums", albumController.getUserAlbums);
 musicRouter.post("/createGenre", genreController.createGenre);
 musicRouter.get("/genres", genreController.getAllGenres);
+musicRouter.delete("/delete/:id", musicController.deleteMusic)
 musicRouter.get("/:id", musicController.getMusicDetail);

@@ -83,4 +83,25 @@ export class MusicController {
       });
     }
   }
+
+  async deleteMusic(req: Request, res: Response){
+    try {
+      const token = req.headers.authorization as string;
+      const {id} = req.params
+      
+      const musicLogic = new MusicLogic(
+        new MusicDatabase(),
+        new IdGenerator(),
+        new Authenticator()
+      )
+      const result = await musicLogic.deleteMusic(id, token)
+      res.status(200).send("Music has been deleted");
+    } catch (error) {
+      res.status(error.customErrorCode || 400).send({
+        message: error.message,
+      });
+    }
+    await BaseDatabase.destroyConnection();
+  }
+
 }

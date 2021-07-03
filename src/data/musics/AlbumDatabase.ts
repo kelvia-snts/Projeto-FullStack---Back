@@ -20,7 +20,7 @@ export class AlbumDatabase extends BaseDatabase {
 
   public async getUserAlbums(id: string): Promise<Album> {
     const albums: any = await this.getConnection()
-      .select("*")
+      .select("name")
       .from(AlbumDatabase.TABLE_NAME)
       .where({ user_id: id });
 
