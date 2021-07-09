@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node --inspect ./build/src/index.js",
-    "dev": " ts-node-dev ./src/index.ts"
+    "start": "tsc && node ./build/src/index.js",
+    "dev": " ts-node-dev ./src/index.ts",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,8 @@
   },
   "homepage": "https://github.com/kelvia-snts/Projeto-FullStack---BACK#readme",
   "devDependencies": {
+  },
+  "dependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.12",
@@ -27,9 +30,7 @@
     "@types/knex": "^0.16.1",
     "@types/uuid": "^8.3.0",
     "ts-node-dev": "^1.1.6",
-    "typescript": "^4.3.4"
-  },
-  "dependencies": {
+    "typescript": "^4.3.4",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",

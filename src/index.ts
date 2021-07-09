@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import express from "express";
+import cors from "cors";
 
 dotenv.config();
 const app = express();
@@ -8,6 +9,7 @@ import { musicRouter } from "./routes/musicRouter";
 import { userRouter } from "./routes/userRouter";
 
 app.use(express.json());
+app.use(cors());
 
 app.use("/user", userRouter);
 app.use("/music", musicRouter);
