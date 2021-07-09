@@ -31,3 +31,7 @@
 - uuid - para gerar id seguros para os usuários
 - bcryptjs - para criptografia da senha do usuários
 - jsonwebtoken - Para gerar token do usuário
+
+### Deploy HEROKU
+
+* Your app can be found at https://labmusic.herokuapp.com/
