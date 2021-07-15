@@ -15,6 +15,7 @@
 - ver informações de uma música específica.
 - criar Album.
 - Ver apenas os albums do usuário logado.
+- ver um perfil com todos os albums criados por um usuário
 - adicioanar gêneros musicais.
 - ver todos os gêneros musicais registrados.
 - seguir outro usuário.
