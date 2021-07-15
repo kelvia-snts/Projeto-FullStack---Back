@@ -1,6 +1,7 @@
 import { UserDatabase } from "../../data/user/UserDatabase";
 import { CustomError } from "../../error/CustomError";
 import { InvalidInputError } from "../../error/InvalidInputError";
+import { UnauthorizedError } from "../../error/UnauthorizedError";
 import { User, UserLoginDTO, UserRegisterDTO } from "../../model/User";
 import { Authenticator } from "../../services/Authenticator";
 import { HashManager } from "../../services/HashManager";
@@ -89,4 +90,18 @@ export class UserLogic {
     });
     return accessToken;
   }
+
+  async getProfile(token: string, id: string): Promise<void> {
+    try {
+      const tokenData = this.authenticator.getData(token)
+      const result = await this.userDatabase.getProfile(id)
+      if (!tokenData) {
+        throw new UnauthorizedError("Unauthorized");
+      }
+      return result;
+    } catch (error) {
+      throw new CustomError(error.statusCode, error.message);
+    }
+  }
+
 }
