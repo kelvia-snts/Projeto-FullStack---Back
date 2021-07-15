@@ -38,4 +38,20 @@ export class UserDatabase extends BaseDatabase {
 
     return User.toUserModel(result[0]);
   }
+
+  public async getProfile(id: string): Promise<void> {
+    try {
+      const profile = await this.getConnection().raw(`
+        SELECT l.id, l.name, l.nickname, a.name
+        FROM Listeners l 
+        JOIN Album a ON l.id = a.user_id
+        WHERE l.id= "${id}"
+      `)      
+      return profile;
+    } catch (error) {
+      throw new Error(error.sqlMessage || error.message);
+    }
+  }
+
 }
+

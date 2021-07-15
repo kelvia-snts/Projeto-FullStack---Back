@@ -53,4 +53,24 @@ export class UserController {
       res.status(400).send({ error: error.message });
     }
   }
+
+  async getProfile(req: Request, res: Response) {
+    try {
+      const token = req.headers.authorization as string;
+      const { id } = req.params;
+
+      const profileLogic = new UserLogic(
+        new UserDatabase(),
+        new IdGenerator(),
+        new HashManager(),
+        new Authenticator()
+      )
+      const profile = await profileLogic.getProfile( token, id);
+      res.status(200).send(profile)
+    } catch (error) {
+      res.status(error.customErrorCode || 400).send({
+        message: error.message,
+      });
+    }
+  } 
 }

@@ -27,7 +27,7 @@ export class MusicDatabase extends BaseDatabase {
     const musics: any = await this.getConnection().raw(`
     SELECT m.id, m.title, m.file, DATE_FORMAT(m.date, '%d/%m/%Y' ) as date, l.name as user, g.name as genre
     FROM Musics m 
-    INNER JOIN Listeners l ON m.author_id = l.id
+    INNER JOIN Listeners l ON m.author_id = l.id 
     INNER JOIN Genre g ON m.genre_id = g.id
     WHERE author_id = '${id}'
     `);

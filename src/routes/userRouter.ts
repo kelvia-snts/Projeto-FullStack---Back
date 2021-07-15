@@ -13,3 +13,4 @@ userRouter.post("/register", userController.register);
 userRouter.post("/login", userController.login);
 userRouter.put("/follow", followController.follow);
 userRouter.delete("/unfollow", unfollowController.unfollow);
+userRouter.get("/profile/:id", userController.getProfile);
